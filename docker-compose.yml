@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    php-exploit:
+        build: docker/
+        container_name: php-pathtraversal
+        ports:
+            - 12399:80
+        restart: unless-stopped
+        volumes:
+            - ./app:/var/www/html

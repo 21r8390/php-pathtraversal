@@ -2,7 +2,7 @@
 
 // Example URL: http://localhost:8080/fileloader-wrong.php?file=1
 
-const BASE_PATH = '/var/www/html/images';
+const BASE_PATH = '/var/www/html/images/';
 
 // Get the index from the URL
 $fileIndex = $_GET['file'];

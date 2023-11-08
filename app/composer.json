@@ -1,0 +1,11 @@
+{
+	"name": "bzt-tg/path-traversal",
+	"description": "Path Traversal",
+	"type": "project",
+	"require": {
+		"php": ">= 8"
+	},
+	"autoload": {
+		"psr-4": {}
+	}
+}

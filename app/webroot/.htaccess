@@ -1,0 +1,13 @@
+# Zugriff gewähren
+Require all granted
+
+# Sicherstellen, dass index.php als "default-Seite" gesetzt ist:
+DirectoryIndex index.php index.html
+
+# URL-Rewrite:
+# Alle URLs, welche nicht auf einen physikalischen Pfad (Datei oder Verzeichnis) zeigen,
+# werden als PATH_INFO-Pfad an index.php übergeben (Siehe $_SERVER['PATH_INFO']):
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) index.php/$1 [L,QSA]

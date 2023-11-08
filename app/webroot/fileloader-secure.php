@@ -9,8 +9,8 @@ const BASE_PATH = '/var/www/html/images';
 $filename = $_GET['file'];
 
 // Validate the canonical path
-$realPath = realpath(BASE_PATH . $filename); // /etc/passwd
-$basePath = basename($realPath); // /ect/
+$realPath = realpath(BASE_PATH . '/' . $filename); // /etc/passwd
+$basePath = dirname($realPath); // /ect/
 if ($basePath !== BASE_PATH) {
     die('Invalid filename');
 }
@@ -22,6 +22,9 @@ if (!str_ends_with($realPath, '.png')) {
 
 // Load the file
 $file = file_get_contents($realPath);
+
+$info = getimagesize($realPath);
+header('Content-type: ' . $info['mime']);
 
 // Output the file
 echo $file;

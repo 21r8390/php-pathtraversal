@@ -5,7 +5,7 @@
 // https://www.urldecoder.io/
 // http://localhost:8080/fileloader-wrong.php?file=../../../etc/passwd
 
-const BASE_PATH = '/var/www/html/images';
+const BASE_PATH = '/var/www/html/images/';
 
 // Get the filename from the URL
 $filename = $_GET['file'];
@@ -21,7 +21,11 @@ if (!str_ends_with($filename, '.png')) {
 }
 
 // Load the file
-$file = file_get_contents(BASE_PATH . $filename);
+$filename = BASE_PATH . $filename;
+$file = file_get_contents($filename);
+
+$info = getimagesize($filename);
+header('Content-type: ' . $info['mime']);
 
 // Output the file
 echo $file;
